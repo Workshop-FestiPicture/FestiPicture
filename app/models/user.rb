@@ -1,4 +1,4 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :password
-  has_many :pictures
+  has_many :pictures, dependent: :destroy
 end

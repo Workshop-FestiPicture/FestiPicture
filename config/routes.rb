@@ -10,6 +10,10 @@ FestiPicture::Application.routes.draw do
   root :to => 'home#index'
 
   post 'users/:id/picture' => 'users#send_picture'
+
+  get 'events/:id/pictures' => 'events#show_pictures'
+
+  get 'users/:id/pictures' => 'users#show_pictures'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
