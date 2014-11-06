@@ -38,3 +38,5 @@ gem 'jbuilder'
 # gem 'debugger'
 
 gem 'strong_parameters'
+
+gem 'twitter-bootstrap-rails'

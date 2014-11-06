@@ -14,6 +14,8 @@ FestiPicture::Application.routes.draw do
   get 'events/:id/pictures' => 'events#show_pictures'
 
   get 'users/:id/pictures' => 'users#show_pictures'
+
+  delete 'users/:id/pictures/:picture_id' => 'users#destroy_picture'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
