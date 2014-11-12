@@ -21,7 +21,7 @@
         <td><%= link_to event.id, event_path(event) %></td>
         <td><%= event.name %></td>
         <td><%= event.description %></td>
-        <td><%= event.image %></td>
+        <td><img src=<%= event.image %> style="width:300px" /></td>
         <td><%= event.opening_date %></td>
         <td><%= event.ending_date %></td>
         <td><%=l event.created_at %></td>
