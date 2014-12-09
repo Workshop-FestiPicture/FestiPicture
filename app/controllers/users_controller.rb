@@ -109,6 +109,30 @@ class UsersController < ApplicationController
     end
   end
 
+  # POST /users/check
+  def is_right
+    @user = User.find_by_name(params[:name])
+
+    if @user.nil?
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { respond_with( { :ok => false, :why => 'name'}.to_json )}
+      end
+    end
+
+    if @user.password = params(:password)
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { respond_with( { :ok => true}.to_json )}
+      end
+    else
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { respond_with( { :ok => false, :why => 'password'}.to_json )}
+      end
+    end
+  end
+
   private
     def set_user
       @user = User.find(params[:id])

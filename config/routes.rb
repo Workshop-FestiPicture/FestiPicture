@@ -1,9 +1,7 @@
 FestiPicture::Application.routes.draw do
   resources :events
 
-
   resources :users
-
 
   get "home/index"
   
@@ -14,6 +12,8 @@ FestiPicture::Application.routes.draw do
   get 'events/:id/pictures' => 'events#show_pictures'
 
   get 'users/:id/pictures' => 'users#show_pictures'
+
+  post 'users/check' => 'users#is_right'
 
   delete 'users/:id/pictures/:picture_id' => 'users#destroy_picture'
   # The priority is based upon order of creation:
