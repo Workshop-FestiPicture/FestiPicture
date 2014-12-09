@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  respond_to :json
 
   before_filter :set_user, only: [:show, :edit, :update, :destroy, :send_picture, :show_pictures]
   # On saute une etape de securite si on appel SEND_PICTURE en JSON
@@ -111,26 +112,18 @@ class UsersController < ApplicationController
 
   # POST /users/check
   def is_right
-    @user = User.find_by_name(params[:name])
+    @user = User.find_by_name(params[:user][:name])
 
-    if @user.nil?
-      respond_to do |format|
-        format.html # new.html.erb
-        format.json { respond_with( { :ok => false, :why => 'name'}.to_json )}
-      end
-    end
-
-    if @user.password = params(:password)
-      respond_to do |format|
-        format.html # new.html.erb
-        format.json { respond_with( { :ok => true}.to_json )}
+    if @user
+      if (@user.password == params[:user][:password])
+        render :json => { :ok => true, :message => "Success!"}
+      else
+        render :json => { :ok => false, :message => "Wrong password!"}
       end
     else
-      respond_to do |format|
-        format.html # new.html.erb
-        format.json { respond_with( { :ok => false, :why => 'password'}.to_json )}
-      end
+      render :json => { :ok => false, :message => "Unknown user"}
     end
+
   end
 
   private
