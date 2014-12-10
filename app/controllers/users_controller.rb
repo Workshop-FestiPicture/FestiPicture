@@ -116,12 +116,12 @@ class UsersController < ApplicationController
 
     if @user
       if (@user.password == params[:user][:password])
-        render :json => { :ok => true, :message => "Success!"}
+        render :json => { :ok => true, :message => "Success!", :user_id => @user.id}
       else
-        render :json => { :ok => false, :message => "Wrong password!"}
+        render :json => { :ok => false, :message => "Wrong password!", :user_id => nil}
       end
     else
-      render :json => { :ok => false, :message => "Unknown user"}
+      render :json => { :ok => false, :message => "Unknown user", :user_id => nil}
     end
 
   end
