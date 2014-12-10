@@ -1,0 +1,65 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'cordova' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose cache add [ 'cordova', null ]
+6 verbose cache add name=undefined spec="cordova" args=["cordova",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'cordova',
+7 verbose parsed url   path: 'cordova',
+7 verbose parsed url   href: 'cordova' }
+8 silly lockFile a98f2055-cordova cordova
+9 verbose lock cordova C:\Users\A Delaunay\AppData\Roaming\npm-cache\a98f2055-cordova.lock
+10 silly lockFile a98f2055-cordova cordova
+11 silly lockFile a98f2055-cordova cordova
+12 verbose addNamed [ 'cordova', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile de8d9fad-cordova cordova@
+15 verbose lock cordova@ C:\Users\A Delaunay\AppData\Roaming\npm-cache\de8d9fad-cordova.lock
+16 silly addNameRange { name: 'cordova', range: '*', hasData: false }
+17 verbose request where is /cordova
+18 verbose request registry https://registry.npmjs.org/
+19 verbose request id d69181485b158b43
+20 verbose url raw /cordova
+21 verbose url resolving [ 'https://registry.npmjs.org/', './cordova' ]
+22 verbose url resolved https://registry.npmjs.org/cordova
+23 verbose request where is https://registry.npmjs.org/cordova
+24 info trying registry request attempt 1 at 18:11:07
+25 http GET https://registry.npmjs.org/cordova
+26 info retry will retry, error on last attempt: Error: connect ETIMEDOUT
+27 info trying registry request attempt 2 at 18:11:39
+28 http GET https://registry.npmjs.org/cordova
+29 info retry will retry, error on last attempt: Error: connect ETIMEDOUT
+30 info trying registry request attempt 3 at 18:13:00
+31 http GET https://registry.npmjs.org/cordova
+32 silly lockFile de8d9fad-cordova cordova@
+33 silly lockFile de8d9fad-cordova cordova@
+34 error network connect ETIMEDOUT
+34 error network This is most likely not a problem with npm itself
+34 error network and is related to network connectivity.
+34 error network In most cases you are behind a proxy or have bad network settings.
+34 error network
+34 error network If you are behind a proxy, please make sure that the
+34 error network 'proxy' config is set properly.  See: 'npm help config'
+35 error System Windows_NT 6.2.9200
+36 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "-g" "cordova"
+37 error cwd C:\Users\A Delaunay\Desktop\festipicture\Code\FestiPicture
+38 error node -v v0.10.33
+39 error npm -v 1.4.28
+40 error syscall connect
+41 error code ETIMEDOUT
+42 error errno ETIMEDOUT
+43 verbose exit [ 1, true ]
