@@ -11,24 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141208233502) do
+ActiveRecord::Schema.define(:version => 20141210102634) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
     t.string   "description"
     t.string   "image"
-    t.date     "opening_date"
-    t.date     "ending_date"
+    t.datetime "opening_date"
+    t.datetime "ending_date"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
   create_table "pictures", :force => true do |t|
-    t.string   "picture"
+    t.binary   "picture",    :limit => 255
     t.string   "caption"
-    t.date     "sent_date"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "sent_date"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.integer  "user_id"
     t.integer  "event_id"
   end
