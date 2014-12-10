@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   before_filter :set_user, only: [:show, :edit, :update, :destroy, :send_picture, :show_pictures]
   # On saute une etape de securite si on appel SEND_PICTURE en JSON
-  skip_before_filter :verify_authenticity_token, only: [:send_picture]
+  skip_before_filter :verify_authenticity_token, only: [:send_picture, :is_right]
 
   # GET /users
   # GET /users.json
