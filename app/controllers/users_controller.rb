@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   respond_to :json
 
-  before_filter :set_user, only: [:show, :edit, :update, :destroy, :send_picture, :show_pictures]
+  before_filter :set_user, only: [:show, :edit, :update, :destroy, :send_picture, :show_pictures, :destroy_pictures]
   # On saute une etape de securite si on appel SEND_PICTURE en JSON
   skip_before_filter :verify_authenticity_token, only: [:send_picture, :is_right]
 
@@ -101,7 +101,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/pictures
   def show_pictures
-    @pictures = Picture.where("user_id = 1").order("id ASC")
+    @pictures = Picture.where(["user_id = :i", { i: @user.id }]).order("id ASC")
 
     respond_to do |format|
       format.html # new.html.erb
@@ -126,7 +126,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1/pictures
   def destroy_pictures
-    @pictures = Picture.where("user_id = 1").order("id ASC")
+    @pictures = Picture.where(["user_id = :i", { i: @user.id }]).order("id ASC")
 
     @pictures.each do |p|
       p.destroy
