@@ -17,12 +17,10 @@
   <tr>
     <td><%= picture.id %></td>
     <td><%= picture.caption %></td>
-    <td><%= picture.picture %></td>
+    <td><%= image_tag("/photo_admin/code_image/#{@photo.id}", :alt => "Image") %></td>
     <td><%= picture.sent_date %></td>
     <td><%= picture.user_id %></td>
     <td><%= picture.event_id %></td>
   </tr>
 <% end %>
 </table>
-
-<br />

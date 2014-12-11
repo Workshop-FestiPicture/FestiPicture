@@ -66,6 +66,5 @@ module FestiPicture
             resource '*', :headers => :any, :methods => [:get, :post, :options, :post]
         end
     end
-
   end
 end

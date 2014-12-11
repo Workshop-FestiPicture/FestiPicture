@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141210102634) do
+ActiveRecord::Schema.define(:version => 20141211011049) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(:version => 20141210102634) do
   end
 
   create_table "pictures", :force => true do |t|
-    t.binary   "picture",    :limit => 255
+    t.binary   "picture",    :limit => 16777216
     t.string   "caption"
     t.datetime "sent_date"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.integer  "user_id"
     t.integer  "event_id"
   end
