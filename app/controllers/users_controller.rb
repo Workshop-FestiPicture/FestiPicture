@@ -122,7 +122,20 @@ class UsersController < ApplicationController
     else
       render :json => { :ok => false, :message => "Unknown user", :user_id => nil}
     end
+  end
 
+  # DELETE /users/1/pictures
+  def destroy_pictures
+    @pictures = Picture.where("user_id = 1").order("id ASC")
+
+    @pictures.each do |p|
+      p.destroy
+    end
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @user }
+    end
   end
 
   private
