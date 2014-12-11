@@ -86,7 +86,6 @@ class UsersController < ApplicationController
   def send_picture
     @picture = Picture.new(picture_params)
     @picture.user = @user
-    puts YAML::dump(@picture)
 
     @event = Event.find(params[:picture][:event_id])
     @picture.event = @event
