@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141211100343) do
+ActiveRecord::Schema.define(:version => 20141211151930) do
 
   create_table "data_files", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20141211100343) do
   end
 
   create_table "pictures", :force => true do |t|
-    t.binary   "picture",    :limit => 16777216
+    t.string   "picture",    :limit => 16777216
     t.string   "caption"
     t.datetime "sent_date"
     t.datetime "created_at",                     :null => false
