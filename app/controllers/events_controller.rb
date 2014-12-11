@@ -92,4 +92,17 @@ class EventsController < ApplicationController
       format.json { render json: @pictures }
     end
   end
+
+  # GET /events/1/diaporama
+  # GET /events/1/diaporama.json
+  def diaporama
+    @event = Event.find(params[:id])
+    @pictures = @event.pictures
+    
+    respond_to do |format|
+      format.html # diaporama.html.erb
+      format.json { render json: @pictures }
+    end
+  end
+
 end
