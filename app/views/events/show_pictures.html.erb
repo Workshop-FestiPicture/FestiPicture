@@ -1,28 +1,27 @@
 <h1>Listing pictures</h1>
-
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Caption</th>
-    <th>Picture</th>
-    <th>Sent Date</th>
-    <th>User Id</th>
-    <th>Event Id</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @pictures.each do |picture| %>
-  <tr>
-    <td><%= picture.id %></td>
-    <td><%= picture.caption %></td>
-    <td><%= picture.picture %></td>
-    <td><%= picture.sent_date %></td>
-    <td><%= picture.user_id %></td>
-    <td><%= picture.event_id %></td>
-  </tr>
-<% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Picture</th>
+      <th>ID</th>
+      <th>Caption</th>
+      <th>Sent Date</th>
+      <th>User Id</th>
+      <th>Event Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pictures.each do |picture| %>
+      <tr>
+        <td><img src=<%= picture.picture %> style="width:300px" /></td>
+        <td><%= picture.id %></td>
+        <td><%= picture.caption %></td>
+        <td><%= picture.sent_date %></td>
+        <td><%= picture.user_id %></td>
+        <td><%= picture.event_id %></td>
+      </tr>
+    <% end %>
+  </tbody>  
 </table>
 
-<br />
+<%= link_to "Diaporama", "diaporama", :class => 'btn btn-primary' %>    

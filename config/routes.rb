@@ -11,6 +11,8 @@ FestiPicture::Application.routes.draw do
 
   get 'events/:id/pictures' => 'events#show_pictures'
 
+  get 'events/:id/diaporama' => 'events#diaporama'
+
   get 'users/:id/pictures' => 'users#show_pictures'
 
   post 'users/check' => 'users#is_right'
