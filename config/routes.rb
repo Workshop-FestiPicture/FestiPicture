@@ -16,6 +16,8 @@ FestiPicture::Application.routes.draw do
   post 'users/check' => 'users#is_right'
 
   delete 'users/:id/pictures/:picture_id' => 'users#destroy_picture'
+
+  get 'upload/index' => 'upload#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
