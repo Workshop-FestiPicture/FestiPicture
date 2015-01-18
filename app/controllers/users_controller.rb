@@ -111,16 +111,16 @@ class UsersController < ApplicationController
 
   # POST /users/check
   def is_right
-    @user = User.find_by_name(params[:user][:name])
+    @user = User.find(params[:user][:name])
 
-    if @user
-      if (@user.password == params[:user][:password])
+    if @user.nil?
+      render :json => { :ok => false, :message => "Unknown user", :user_id => nil}
+    else
+      if @user.has_password?(params[:user][:password])
         render :json => { :ok => true, :message => "Success!", :user_id => @user.id}
       else
         render :json => { :ok => false, :message => "Wrong password!", :user_id => nil}
       end
-    else
-      render :json => { :ok => false, :message => "Unknown user", :user_id => nil}
     end
   end
 
