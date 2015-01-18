@@ -111,7 +111,7 @@ class UsersController < ApplicationController
 
   # POST /users/check
   def is_right
-    @user = User.find(params[:user][:name])
+    @user = User.find_by_name(params[:user][:name])
 
     if @user.nil?
       render :json => { :ok => false, :message => "Unknown user", :user_id => nil}
