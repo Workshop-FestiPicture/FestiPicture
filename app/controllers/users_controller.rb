@@ -84,11 +84,16 @@ class UsersController < ApplicationController
 
   # POST /users/1/picture
   def send_picture
-    @picture = Picture.new(picture_params)
+    @picture = Picture.new
     @picture.user = @user
 
     @event = Event.find(params[:picture][:event_id])
     @picture.event = @event
+
+    picture_location = params[:picture][:picture]
+    # picture_s3_loc = save_picture_to_s3(picture_location, @event.name, @user.id)
+
+    @picture.picture = picture_location
 
     respond_to do |format|
       if @picture.save
@@ -136,6 +141,18 @@ class UsersController < ApplicationController
       format.html # new.html.erb
       format.json { render json: @user }
     end
+  end
+
+  
+  def save_picture_to_s3(image_location, folder_name,user_id)
+    s3 = Aws::S3::Client.new(region: 'eu-central-1')
+    bucket_name = 'festipicture'
+    key = folder_name.to_s + "/" + File.basename(image_location)
+    require 'open-uri'
+    File.open(image_location, 'rb') do |file|
+      s3.put_object(bucket: bucket_name, key: key, body:file)
+    end
+    return s3.bucket(bucket_name).object(key).public_url
   end
 
   private

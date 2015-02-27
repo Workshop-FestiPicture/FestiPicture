@@ -47,3 +47,7 @@ gem 'strong_parameters'
 gem 'twitter-bootstrap-rails'
 
 gem 'rack-cors', :require => 'rack/cors'
+
+# tu use Amazon Web Services
+gem 'aws-sdk'
+

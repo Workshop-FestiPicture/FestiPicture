@@ -26,6 +26,9 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
 
+    s3 = Aws::S3.new(region: 'eu-central-1')
+    my_bucket = s3.bucket('festipicture')
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @event }

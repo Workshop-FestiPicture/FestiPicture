@@ -1,4 +1,6 @@
 FestiPicture::Application.routes.draw do
+  resources :photos
+
   resources :events
 
   resources :users

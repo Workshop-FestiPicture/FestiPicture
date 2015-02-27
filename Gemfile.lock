@@ -29,6 +29,15 @@ GEM
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
     arel (3.0.3)
+    aws-sdk (2.0.28)
+      aws-sdk-resources (= 2.0.28)
+    aws-sdk-core (2.0.28)
+      builder (~> 3.0)
+      jmespath (~> 1.0)
+      multi_json (~> 1.0)
+      multi_xml (~> 0.5)
+    aws-sdk-resources (2.0.28)
+      aws-sdk-core (= 2.0.28)
     builder (3.0.4)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -44,6 +53,8 @@ GEM
     jbuilder (2.2.4)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
+    jmespath (1.0.2)
+      multi_json (~> 1.0)
     journey (1.0.4)
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
@@ -54,6 +65,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     pg (0.17.1-x86-mingw32)
     polyglot (0.3.5)
     rack (1.4.5)
@@ -122,6 +134,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  aws-sdk
   coffee-rails (~> 3.2.1)
   jbuilder
   jquery-rails

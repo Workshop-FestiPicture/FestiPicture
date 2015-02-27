@@ -13,7 +13,7 @@
   <tbody>
     <% @pictures.each do |picture| %>
       <tr>
-        <td><img src=<%= picture.picture %> style="width:300px" /></td>
+        <td><%= image_tag(picture.picture) %></td>
         <td><%= picture.id %></td>
         <td><%= picture.caption %></td>
         <td><%= picture.sent_date %></td>

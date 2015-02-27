@@ -17,7 +17,7 @@
   <tr>
     <td><%= picture.id %></td>
     <td><%= picture.caption %></td>
-    <td><%= image_tag("/photo_admin/code_image/#{@photo.id}", :alt => "Image") %></td>
+    <td><%= image_tag(picture.picture) %></td>
     <td><%= picture.sent_date %></td>
     <td><%= picture.user_id %></td>
     <td><%= picture.event_id %></td>
