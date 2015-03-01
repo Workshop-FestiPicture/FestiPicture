@@ -15,4 +15,4 @@
 /tmp
 
 # Ignore AWS access credentials
-/config/env.yml
+/config/local_env.yml

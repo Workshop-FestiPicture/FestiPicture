@@ -91,7 +91,7 @@ class UsersController < ApplicationController
     @picture.event = @event
 
     picture_location = params[:picture][:picture]
-    # picture_s3_loc = save_picture_to_s3(picture_location, @event.name, @user.id)
+    #picture_s3_loc = save_picture_to_s3(picture_location, @event.name, @user.id)
 
     @picture.picture = picture_location
 
@@ -145,13 +145,13 @@ class UsersController < ApplicationController
 
   
   def save_picture_to_s3(image_location, folder_name,user_id)
-    s3 = Aws::S3::Client.new(region: 'eu-central-1')
-    bucket_name = 'festipicture'
+    s3 = Aws::S3::Resource.new
+    bucket_name = ENV["S3_BUCKET"]
     key = folder_name.to_s + "/" + File.basename(image_location)
-    require 'open-uri'
-    File.open(image_location, 'rb') do |file|
-      s3.put_object(bucket: bucket_name, key: key, body:file)
-    end
+    #File.open(image_location, 'wb') do |file|
+    #  s3.bucket(bucket_name).object(key).put(body:file)
+    #end
+    s3.bucket(bucket_name).object(key).upload_file(image_location)
     return s3.bucket(bucket_name).object(key).public_url
   end
 
